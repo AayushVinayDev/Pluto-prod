@@ -8,7 +8,7 @@ import { dataGridClassNames, dataGridSxStyles } from "@/lib/utils";
 import {
   Priority,
   Task,
-//   useGetAuthUserQuery,
+  useGetAuthUserQuery,
   useGetTasksByUserQuery,
 } from "@/state/api";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
@@ -77,21 +77,13 @@ const ReusablePriorityPage = ({ priority }: Props) => {
   const [view, setView] = useState("list");
   const [isModalNewTaskOpen, setIsModalNewTaskOpen] = useState(false);
 
-//   const { data: currentUser } = useGetAuthUserQuery({});
-//   const userId = currentUser?.userDetails?.userId ?? null;
-//   const {
-//     data: tasks,
-//     isLoading,
-//     isError: isTasksError,
-//   } = useGetTasksByUserQuery(userId || 0, {
-//     skip: userId === null,
-//   });
-const userId = 1; //Todo: change the hardcoded data 
+  const { data: currentUser } = useGetAuthUserQuery({});
+  const userId = currentUser?.userDetails?.userId ?? null;
   const {
     data: tasks,
     isLoading,
     isError: isTasksError,
-  } = useGetTasksByUserQuery(userId || 0 , {
+  } = useGetTasksByUserQuery(userId || 0, {
     skip: userId === null,
   });
 
