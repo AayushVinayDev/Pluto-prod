@@ -1,7 +1,7 @@
 import Modal from "@/components/Modal";
 import { useCreateProjectMutation } from "@/state/api";
-import { formatISO } from "date-fns";
 import React, { useState } from "react";
+import { formatISO } from "date-fns";
 
 type Props = {
   isOpen: boolean;
@@ -39,6 +39,7 @@ const ModalNewProject = ({ isOpen, onClose }: Props) => {
 
   const inputStyles =
     "w-full rounded border border-gray-300 p-2 shadow-sm dark:border-dark-tertiary dark:bg-dark-tertiary dark:text-white dark:focus:outline-none";
+
   return (
     <Modal isOpen={isOpen} onClose={onClose} name="Create New Project">
       <form
@@ -75,7 +76,6 @@ const ModalNewProject = ({ isOpen, onClose }: Props) => {
             onChange={(e) => setEndDate(e.target.value)}
           />
         </div>
-
         <button
           type="submit"
           className={`focus-offset-2 mt-4 flex w-full justify-center rounded-md border border-transparent bg-blue-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 ${
@@ -89,4 +89,5 @@ const ModalNewProject = ({ isOpen, onClose }: Props) => {
     </Modal>
   );
 };
+
 export default ModalNewProject;
